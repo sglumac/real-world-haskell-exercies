@@ -1,0 +1,15 @@
+{
+    "name": "Haskell",
+    "image": "bjing/haskell-dev-container:ghc-9.2.8",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "haskell.manageHLS": "GHCup"
+            },
+            "extensions": [
+                "haskell.haskell"
+            ]
+        }
+    },
+    "remoteUser": "code"
+}
