@@ -7,4 +7,5 @@ foldChars :: Int -> Char -> Int
 foldChars acc c = 10 * acc + digitToInt c
 
 asInt_fold :: String -> Int
-asInt_fold = foldl foldChars 0
+asInt_fold ('-' : cs) = (-1) * foldl foldChars 0 cs
+asInt_fold cs = foldl foldChars 0 cs
