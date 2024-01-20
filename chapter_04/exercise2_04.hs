@@ -4,8 +4,8 @@ recursiveTakeWhile p (x : xs)
   | otherwise = []
 
 foldingTakeWhile :: (a -> Bool) -> [a] -> [a]
-foldingTakeWhile p xs = foldr folded [] xs
+foldingTakeWhile p xs = foldr step [] xs
   where
-    folded x xs
+    step x xs
       | p x = x : xs
-      | otherwise = xs
+      | otherwise = []
