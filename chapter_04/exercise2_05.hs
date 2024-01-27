@@ -3,7 +3,9 @@ import Data.List (groupBy)
 
 recursiveGroupBy :: (a -> a -> Bool) -> [a] -> [[a]]
 recursiveGroupBy _ [] = []
-recursiveGroupBy p (x : xs) = (x : takeWhile (p x) xs) : recursiveGroupBy p (dropWhile (p x) xs)
+recursiveGroupBy p (x : xs) = (x : hs) : recursiveGroupBy p ts
+  where
+    (hs, ts) = span (p x) xs
 
 foldlGroupBy :: (a -> a -> Bool) -> [a] -> [[a]]
 foldlGroupBy p = foldl' step []
@@ -14,9 +16,8 @@ foldlGroupBy p = foldl' step []
       | otherwise = xss ++ [[y]]
 
 foldrGroupBy :: (a -> a -> Bool) -> [a] -> [[a]]
-foldrGroupBy p xs = yss
+foldrGroupBy p = foldr step []
   where
-    yss = foldr step [] xs
     step x [] = [[x]]
     step x ([] : yss) = [x] : yss
     step x ((y : ys) : yss)
