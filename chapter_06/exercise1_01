@@ -1,0 +1,7 @@
+import Control.Arrow
+
+:type second
+:info second
+
+-- A mirror image of first.
+-- Send the first component of the input through the argument arrow, and copy the rest unchanged to the output.
