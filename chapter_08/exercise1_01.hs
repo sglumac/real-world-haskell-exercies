@@ -1,0 +1,3 @@
+import GlobToRegex
+
+malformed = globToRegex "["
